@@ -18,7 +18,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
-const file = "../public/static/contact.txt";
+const file = "https://video.chrisgoerler.com/contact.vcf";
 
 const CardContainer = styled.div`
   display: flex;
@@ -245,7 +245,7 @@ const Trial = () => {
   return (
     <Container>
       <CardContainer>
-        <Title>Marc Habbouce</Title>
+        <Title>Marc Habbouche</Title>
         <ProfileImage src={profile} alt="Profile" />
         <Bio>I was born at a very young age</Bio>
         <Location>Charlotte NC</Location>
@@ -297,7 +297,7 @@ const Trial = () => {
             <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
           </Button>
           <Button>
-            <a href="https://www.instagram.com/Habb0uche/" target="blank">
+            <a href="https://www.facebook.com/habboucher" target="blank">
               Instagram
             </a>
             <FontAwesomeIcon icon={faInstagram} style={iconStyle} />

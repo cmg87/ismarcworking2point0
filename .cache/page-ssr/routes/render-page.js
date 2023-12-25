@@ -1852,11 +1852,18 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr.js */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
     "plugins": [],
+    "name": "IsMarcWorkikng",
+    "short_name": "IMW",
+    "description": "I am always working.",
+    "start_url": "/",
+    "background_color": "#6b37bf",
+    "theme_color": "#6b37bf",
+    "display": "standalone",
     "icon": "src/images/marcprofile.png",
+    "crossOrigin": "use-credentials",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
-    "crossOrigin": "anonymous",
     "include_favicon": true,
     "cacheDigest": "7dd381bec3697ecb41060e248ea2a156"
   }

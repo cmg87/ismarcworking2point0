@@ -596,7 +596,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const file = "../public/static/contact.txt";
+const file = "https://video.chrisgoerler.com/contact.vcf";
 const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
   display: flex;
   flex-direction: column;
@@ -808,7 +808,7 @@ const Trial = () => {
   const closeModal = () => {
     setShowModal(false);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CardContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Title, null, "Marc Habbouce"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProfileImage, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CardContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Title, null, "Marc Habbouche"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProfileImage, {
     src: _images_marcprofile_png__WEBPACK_IMPORTED_MODULE_1__["default"],
     alt: "Profile"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Bio, null, "I was born at a very young age"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Location, null, "Charlotte NC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContactButton, {
