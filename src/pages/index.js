@@ -1,178 +1,364 @@
-import * as React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import profile from "../images/marcprofile.png";
+import QRCode from "react-qr-code";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShare,
+  faPhone,
+  faLink,
+  faDownload,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-const headingAccentStyles = {
-  color: "#663399",
-};
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-};
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
+import {
+  faInstagram,
+  faFacebook,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
+const file = "../public/static/contact.txt";
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  background-color: #f1f1f0;
+  //bigger screen flow
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f0;
+    border-radius: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40vw;
+    height: auto;
+    margin: 2rem;
+    padding: 2rem;
+  }
+`;
+
+const Container = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(to bottom left, #626263, #26292d);
+  }
+`;
+
+// const Modal = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: auto;
+//   text-align: center;
+//   background-color: #f1f1f0;
+//   //bigger screen flow
+//   @media (min-width: 1024px) {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: #f1f1f0;
+//     border-radius: 40px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     width: 40vw;
+//     height: auto;
+//     margin: 2rem;
+//     padding: 2rem;
+//   }
+// `;
+
+const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f1f1f0;
+`;
+
+const ProfileImage = styled.img`
+  width: 350px;
+  margin-bottom: 20px;
+  height: auto;
+  max-height: 100%;
+`;
+
+const Title = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #404343;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+`;
+
+const Bio = styled.p`
+  font-size: 18px;
+  //   margin-bottom: 1rem;
+  //   padding: 2rem;
+  color: #333;
+  text-align: center;
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
+`;
+
+const Location = styled.p`
+  font-size: 16px;
+  margin-bottom: 1rem;
+  //   padding: 2rem;
+  color: #444;
+  text-align: center;
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
+`;
+
+const ContactButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #404343;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.3rem;
+  width: 170px;
+`;
+
+const ModalButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const Line = styled.div`
+  border-top: 2px solid #c8c8c7;
+  width: 80%;
+  margin: 20px 0;
+`;
+
+const QRCodeContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const QRCodePopup = styled.div`
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+`;
+
+const iconStyle = {
+  marginLeft: "10px",
 };
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
+// Styled Column
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* Add additional styling as needed */
+`;
+
+// Styled Row
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* Add additional styling as needed */
+`;
+
+const handleDownload = () => {
+  // Create a dummy file URL
+  const fileUrl = "../public/static/contact.vcf";
+
+  // Create a temporary link element
+  const link = document.createElement("a");
+  link.href = fileUrl;
+  link.download = "file.vcf";
+
+  // Append the link to the document body
+  document.body.appendChild(link);
+
+  // Trigger the click event on the link
+  link.click();
+
+  // Remove the link from the document body
+  document.body.removeChild(link);
 };
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-};
+//QR button code
+const Trial = () => {
+  const [showQRCode, setShowQRCode] = useState(false);
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-};
+  const toggleQRCode = () => {
+    setShowQRCode(!showQRCode);
+  };
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-};
+  //modal code
+  const [showModal, setShowModal] = useState(false);
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-};
+  const openModal = () => {
+    setShowModal(true);
+  };
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-];
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
-const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>
-          — you just made a Gatsby site! 🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map((link) => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
+    <Container>
+      <CardContainer>
+        <Title>Marc Habbouce</Title>
+        <ProfileImage src={profile} alt="Profile" />
+        <Bio>I was born at a very young age</Bio>
+        <Location>Charlotte NC</Location>
+        <ContactButton onClick={toggleQRCode}>
+          Share <FontAwesomeIcon icon={faShare} style={iconStyle} />
+        </ContactButton>
+        {showQRCode && (
+          <QRCodeContainer onClick={toggleQRCode}>
+            <QRCodePopup>
+              <QRCode value={window.location.href} />
+            </QRCodePopup>
+          </QRCodeContainer>
+        )}
+        <Line />
+        <Row>
+          <Button>
+            <a href="tel:2164049099">216-404-9099</a>
+            <FontAwesomeIcon icon={faPhone} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href={file} target="blank" download>
+              Save Contact
+            </a>
+            <FontAwesomeIcon icon={faDownload} style={iconStyle} />
+          </Button>
+        </Row>
+        <Row>
+          <Button>
+            <a
+              href="https://curatedevents.com/charlotte/?gclid=CjwKCAiAyp-sBhBSEiwAWWzTnh9a7dU3uaiiKB1jsvw7gHtVb-eOLBdzTktfTToAur8WOuy5W2fWKBoCzKcQAvD_BwE"
+              target="blank"
+            >
+              Events
+            </a>
+            <FontAwesomeIcon icon={faLink} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href="https://www.starboyz.us" target="blank">
+              StarBoyz
+            </a>
+            <FontAwesomeIcon icon={faLink} style={iconStyle} />
+          </Button>
+        </Row>
+        <Row>
+          <Button>
+            <a href="mailto:Mhabbouche@curatedevents.com" target="blank">
+              Work Email
+            </a>
+            <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href="https://www.instagram.com/Habb0uche/" target="blank">
+              Instagram
+            </a>
+            <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
+          </Button>
+        </Row>
+        <Row>
+          <Button>
+            <a href="https://www.facebook.com/habboucher" target="blank">
+              Facebook
+            </a>
+            <FontAwesomeIcon icon={faFacebook} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href="https://www.linkedin.com/in/mhabbouche" target="blank">
+              Linkedin
+            </a>
+            <FontAwesomeIcon icon={faLinkedin} style={iconStyle} />
+          </Button>
+        </Row>
+        {/* <ModalButton onClick={openModal}>Message</ModalButton> */}
+
+        {showModal && (
+          <Modal>
+            {/* Modal content */}
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p>
+                <label>
+                  Your Name: <input type="text" name="name" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Your Email: <input type="email" name="email" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Your Phone Number: <input type="tel" name="phone" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Message: <textarea name="message"></textarea>
+                </label>
+              </p>
+              <p>
+                <button type="submit">Send</button>
+              </p>
+            </form>
+            <ModalButton onClick={closeModal}>Close</ModalButton>
+          </Modal>
+        )}
+      </CardContainer>
+    </Container>
   );
 };
 
-export default IndexPage;
-
-export const Head = () => <title>ismarcworking?</title>;
+export default Trial;

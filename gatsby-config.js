@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `ismarcworking2point0`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.ismarcworking.com`,
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/marcprofile.png",
       },
     },
     "gatsby-plugin-sharp",

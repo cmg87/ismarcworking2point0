@@ -1809,14 +1809,11 @@ function getForwards(collectedScripts) {
 exports.components = {
   "component---cache-dev-404-page-js": () => __webpack_require__.e(/*! import() | component---cache-dev-404-page-js */ "component---cache-dev-404-page-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../dev-404-page.js?export=default */ "./.cache/dev-404-page.js?export=default")),
   "component---src-pages-404-js": () => __webpack_require__.e(/*! import() | component---src-pages-404-js */ "component---src-pages-404-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/404.js?export=default */ "./src/pages/404.js?export=default")),
-  "component---src-pages-index-js": () => __webpack_require__.e(/*! import() | component---src-pages-index-js */ "component---src-pages-index-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.js?export=default */ "./src/pages/index.js?export=default")),
-  "component---src-pages-test-js": () => __webpack_require__.e(/*! import() | component---src-pages-test-js */ "component---src-pages-test-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/test.js?export=default */ "./src/pages/test.js?export=default")),
-  "component---src-pages-trial-js": () => __webpack_require__.e(/*! import() | component---src-pages-trial-js */ "component---src-pages-trial-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/trial.js?export=default */ "./src/pages/trial.js?export=default"))
+  "component---src-pages-index-js": () => __webpack_require__.e(/*! import() | component---src-pages-index-js */ "component---src-pages-index-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.js?export=default */ "./src/pages/index.js?export=default"))
 };
 
 exports.head = {
-  "component---src-pages-404-js": () => __webpack_require__.e(/*! import() | component---src-pages-404-jshead */ "component---src-pages-404-jshead").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/404.js?export=head */ "./src/pages/404.js?export=head")),
-  "component---src-pages-index-js": () => __webpack_require__.e(/*! import() | component---src-pages-index-jshead */ "component---src-pages-index-jshead").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.js?export=head */ "./src/pages/index.js?export=head"))
+  "component---src-pages-404-js": () => __webpack_require__.e(/*! import() | component---src-pages-404-jshead */ "component---src-pages-404-jshead").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/404.js?export=head */ "./src/pages/404.js?export=head"))
 };
 
 /***/ }),
@@ -1855,13 +1852,13 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr.js */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "icon": "src/images/icon.png",
+    "icon": "src/images/marcprofile.png",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": "53aa06cf17e4239d0dba6ffd09854e02"
+    "cacheDigest": "7dd381bec3697ecb41060e248ea2a156"
   }
 }, {
   name: 'gatsby-plugin-offline',
