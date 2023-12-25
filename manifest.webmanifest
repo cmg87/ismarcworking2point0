@@ -1,0 +1,15 @@
+{
+    "name": "IsMarcWorking",
+    "short_name": "Marc",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#663399",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/images/marcprofile.png",  
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
+}
