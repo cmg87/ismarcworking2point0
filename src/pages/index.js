@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import profile from "../images/marcprofile.png";
 import QRCode from "react-qr-code";
+import { StaticImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShare,
@@ -246,7 +247,15 @@ const Trial = () => {
     <Container>
       <CardContainer>
         <Title>Marc Habbouche</Title>
-        <ProfileImage src={profile} alt="Profile" />
+        {/* <ProfileImage src={profile} alt="Profile" /> */}
+        <StaticImage
+          src="../images/marcprofile.png"
+          alt="profile picture"
+          placeholder="blurred"
+          layout="fixed"
+          width={350}
+          height={350}
+        />
         <Bio>I was born at a very young age</Bio>
         <Location>Charlotte NC</Location>
         <ContactButton onClick={toggleQRCode}>
