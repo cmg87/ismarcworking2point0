@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import profile from "../images/marcprofile.png";
+import { Helmet } from "react-helmet";
 import QRCode from "react-qr-code";
 import { StaticImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,6 @@ import {
   faInstagram,
   faFacebook,
   faLinkedin,
-  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 const file = "https://video.chrisgoerler.com/contact.vcf";
@@ -57,30 +56,6 @@ const Container = styled.div`
   }
 `;
 
-// const Modal = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   height: auto;
-//   text-align: center;
-//   background-color: #f1f1f0;
-//   //bigger screen flow
-//   @media (min-width: 1024px) {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: #f1f1f0;
-//     border-radius: 40px;
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-//     width: 40vw;
-//     height: auto;
-//     margin: 2rem;
-//     padding: 2rem;
-//   }
-// `;
-
 const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -93,13 +68,6 @@ const Modal = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #f1f1f0;
-`;
-
-const ProfileImage = styled.img`
-  width: 350px;
-  margin-bottom: 20px;
-  height: auto;
-  max-height: 100%;
 `;
 
 const Title = styled.h1`
@@ -191,60 +159,28 @@ const iconStyle = {
   marginLeft: "10px",
 };
 
-// Styled Column
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* Add additional styling as needed */
-`;
-
-// Styled Row
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   /* Add additional styling as needed */
 `;
 
-const handleDownload = () => {
-  // Create a dummy file URL
-  const fileUrl = "../public/static/contact.vcf";
-
-  // Create a temporary link element
-  const link = document.createElement("a");
-  link.href = fileUrl;
-  link.download = "file.vcf";
-
-  // Append the link to the document body
-  document.body.appendChild(link);
-
-  // Trigger the click event on the link
-  link.click();
-
-  // Remove the link from the document body
-  document.body.removeChild(link);
-};
-
-//QR button code
-const Trial = () => {
+const Index = () => {
+  //QR code code
   const [showQRCode, setShowQRCode] = useState(false);
 
   const toggleQRCode = () => {
     setShowQRCode(!showQRCode);
   };
 
-  //modal code
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <Container>
+      <Helmet>
+        <title>Marc Habbouche</title>
+        <meta name="description" content="Marc Habbouche contact info" />
+        <meta name="keywords" content="Marc Habbouche contact info" />
+        <link rel="canonical" href="https://www.ismarcworking.com" />
+      </Helmet>
       <CardContainer>
         <Title>Marc Habbouche</Title>
         {/* <ProfileImage src={profile} alt="Profile" /> */}
@@ -326,48 +262,9 @@ const Trial = () => {
             <FontAwesomeIcon icon={faLinkedin} style={iconStyle} />
           </Button>
         </Row>
-        {/* <ModalButton onClick={openModal}>Message</ModalButton> */}
-
-        {showModal && (
-          <Modal>
-            {/* Modal content */}
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <p>
-                <label>
-                  Your Name: <input type="text" name="name" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your Email: <input type="email" name="email" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your Phone Number: <input type="tel" name="phone" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Message: <textarea name="message"></textarea>
-                </label>
-              </p>
-              <p>
-                <button type="submit">Send</button>
-              </p>
-            </form>
-            <ModalButton onClick={closeModal}>Close</ModalButton>
-          </Modal>
-        )}
       </CardContainer>
     </Container>
   );
 };
 
-export default Trial;
+export default Index;
