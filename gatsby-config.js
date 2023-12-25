@@ -18,8 +18,8 @@ module.exports = {
         short_name: "IMW",
         description: "I am always working.",
         start_url: "/",
-        background_color: "#6b37bf",
-        theme_color: "#6b37bf",
+        background_color: "#404343",
+        theme_color: "#404343",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",

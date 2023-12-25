@@ -2,8 +2,8 @@
     "name": "IsMarcWorking",
     "short_name": "Marc",
     "start_url": "/",
-    "background_color": "#ffffff",
-    "theme_color": "#663399",
+    "background_color": "#404343",
+    "theme_color": "#404343",
     "display": "standalone",
     "icons": [
         {

@@ -122,15 +122,6 @@ const Button = styled.button`
   width: 170px;
 `;
 
-const ModalButton = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #333;
-  border: 2px solid #333;
-  border-radius: 5px;
-  cursor: pointer;
-`;
-
 const Line = styled.div`
   border-top: 2px solid #c8c8c7;
   width: 80%;
