@@ -3,7 +3,22 @@ import styled from "styled-components";
 import profile from "../images/marcprofile.png";
 import QRCode from "react-qr-code";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShare, faPhone, faLink } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShare,
+  faPhone,
+  faLink,
+  faDownload,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {
+  faInstagram,
+  faFacebook,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
+const file = "../public/static/contact.txt";
 
 const CardContainer = styled.div`
   display: flex;
@@ -95,11 +110,22 @@ const Title = styled.h1`
 `;
 
 const Bio = styled.p`
+  font-size: 18px;
+  //   margin-bottom: 1rem;
+  //   padding: 2rem;
+  color: #333;
+  text-align: center;
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
+`;
+
+const Location = styled.p`
   font-size: 16px;
   margin-bottom: 1rem;
-  padding: 2rem;
-  color: #333;
-  text-align: left;
+  //   padding: 2rem;
+  color: #444;
+  text-align: center;
   @media (min-width: 1024px) {
     width: 80%;
   }
@@ -124,7 +150,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin: 0.3rem;
-  //   width: 150px;
+  width: 170px;
 `;
 
 const ModalButton = styled.button`
@@ -180,12 +206,12 @@ const Row = styled.div`
 
 const handleDownload = () => {
   // Create a dummy file URL
-  const fileUrl = "../files/contact.vcf";
+  const fileUrl = "../public/static/contact.vcf";
 
   // Create a temporary link element
   const link = document.createElement("a");
   link.href = fileUrl;
-  link.download = "file.pdf";
+  link.download = "file.vcf";
 
   // Append the link to the document body
   document.body.appendChild(link);
@@ -221,14 +247,8 @@ const Trial = () => {
       <CardContainer>
         <Title>Marc Habbouce</Title>
         <ProfileImage src={profile} alt="Profile" />
-        <Bio>
-          As the Head of Operations at a top-notch event planning company, I
-          take pride in orchestrating the seamless execution of every event.
-          Beyond my professional role, I find joy in golfing, cruising on my
-          motorcycle, and savoring the occasional cigar, striking a perfect
-          balance between precision in the workplace and leisure in my personal
-          pursuits.
-        </Bio>
+        <Bio>I was born at a very young age</Bio>
+        <Location>Charlotte NC</Location>
         <ContactButton onClick={toggleQRCode}>
           Share <FontAwesomeIcon icon={faShare} style={iconStyle} />
         </ContactButton>
@@ -245,7 +265,12 @@ const Trial = () => {
             <a href="tel:2164049099">216-404-9099</a>
             <FontAwesomeIcon icon={faPhone} style={iconStyle} />
           </Button>
-          <Button onClick={handleDownload}>Save Contact</Button>
+          <Button>
+            <a href={file} target="blank" download>
+              Save Contact
+            </a>
+            <FontAwesomeIcon icon={faDownload} style={iconStyle} />
+          </Button>
         </Row>
         <Row>
           <Button>
@@ -257,8 +282,41 @@ const Trial = () => {
             </a>
             <FontAwesomeIcon icon={faLink} style={iconStyle} />
           </Button>
+          <Button>
+            <a href="https://www.starboyz.us" target="blank">
+              StarBoyz
+            </a>
+            <FontAwesomeIcon icon={faLink} style={iconStyle} />
+          </Button>
         </Row>
-
+        <Row>
+          <Button>
+            <a href="mailto:Mhabbouche@curatedevents.com" target="blank">
+              Work Email
+            </a>
+            <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href="https://www.instagram.com/Habb0uche/" target="blank">
+              Instagram
+            </a>
+            <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
+          </Button>
+        </Row>
+        <Row>
+          <Button>
+            <a href="https://www.facebook.com/habboucher" target="blank">
+              Facebook
+            </a>
+            <FontAwesomeIcon icon={faFacebook} style={iconStyle} />
+          </Button>
+          <Button>
+            <a href="https://www.linkedin.com/in/mhabbouche" target="blank">
+              Linkedin
+            </a>
+            <FontAwesomeIcon icon={faLinkedin} style={iconStyle} />
+          </Button>
+        </Row>
         {/* <ModalButton onClick={openModal}>Message</ModalButton> */}
 
         {showModal && (

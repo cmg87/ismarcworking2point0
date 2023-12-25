@@ -1,28 +1,13 @@
-import React from "react";
+const generateVcard = () => {
+  const vcf = `BEGIN:VCARD
+  VERSION:3.0
+  FN:Marc Habbouche
+  ORG:Curated Events
+  TEL:2164049099
+  EMAIL:Mhabbouche@curatedevents.com
+  END:VCARD`;
 
-const Download = () => {
-  const handleDownload = () => {
-    // Create a dummy file URL
-    const fileUrl = "../files/flash.pdf";
-
-    // Create a temporary link element
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = "file.pdf";
-
-    // Append the link to the document body
-    document.body.appendChild(link);
-
-    // Trigger the click event on the link
-    link.click();
-
-    // Remove the link from the document body
-    document.body.removeChild(link);
-  };
-
-  return (
-    <div>
-      <button onClick={handleDownload}>Download File</button>
-    </div>
-  );
+  return vcf;
 };
+
+export default generateVcard;

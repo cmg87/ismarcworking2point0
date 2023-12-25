@@ -594,6 +594,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const file = "../public/static/contact.txt";
 const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
   display: flex;
   flex-direction: column;
@@ -707,6 +708,7 @@ const Button = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].button`
   border-radius: 5px;
   cursor: pointer;
   margin: 0.3rem;
+  //   width: 150px;
 `;
 const ModalButton = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].button`
   padding: 10px 20px;
@@ -737,14 +739,31 @@ const QRCodePopup = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].di
   padding: 20px;
   border-radius: 5px;
 `;
+const iconStyle = {
+  marginLeft: "10px"
+};
+
+// Styled Column
+const Column = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+  display: flex;
+  flex-direction: column;
+  /* Add additional styling as needed */
+`;
+
+// Styled Row
+const Row = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+  display: flex;
+  flex-direction: row;
+  /* Add additional styling as needed */
+`;
 const handleDownload = () => {
   // Create a dummy file URL
-  const fileUrl = "../files/contact.vcf";
+  const fileUrl = "../public/static/contact.vcf";
 
   // Create a temporary link element
   const link = document.createElement("a");
   link.href = fileUrl;
-  link.download = "file.pdf";
+  link.download = "file.vcf";
 
   // Append the link to the document body
   document.body.appendChild(link);
@@ -780,19 +799,31 @@ const Trial = () => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CardContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Title, null, "Marc Habbouce"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProfileImage, {
     src: _images_marcprofile_png__WEBPACK_IMPORTED_MODULE_1__["default"],
     alt: "Profile"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Bio, null, "As the Head of Operations at a top-notch event planning company, I take pride in orchestrating the seamless execution of every event. Beyond my professional role, I find joy in golfing, cruising on my motorcycle, and savoring the occasional cigar, striking a perfect balance between precision in the workplace and leisure in my personal pursuits."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faShare
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Line, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContactButton, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Bio, null, "As the Head of Operations at a top-notch event planning company, I take pride in orchestrating the seamless execution of every event. Beyond my professional role, I find joy in golfing, cruising on my motorcycle, and savoring the occasional cigar, striking a perfect balance between precision in the workplace and leisure in my personal pursuits."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContactButton, {
     onClick: toggleQRCode
-  }, "Contact"), showQRCode && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QRCodeContainer, {
+  }, "Share ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faShare,
+    style: iconStyle
+  })), showQRCode && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QRCodeContainer, {
     onClick: toggleQRCode
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QRCodePopup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_qr_code__WEBPACK_IMPORTED_MODULE_2__["default"], {
     value: window.location.href
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Line, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "tel:2164049099"
-  }, "216-404-9099")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, {
-    onClick: handleDownload
-  }, "Save Contact"), showModal && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Modal, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+  }, "216-404-9099"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPhone,
+    style: iconStyle
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: file,
+    target: "blank",
+    download: true
+  }, "Save Contact"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://curatedevents.com/charlotte/?gclid=CjwKCAiAyp-sBhBSEiwAWWzTnh9a7dU3uaiiKB1jsvw7gHtVb-eOLBdzTktfTToAur8WOuy5W2fWKBoCzKcQAvD_BwE",
+    target: "blank"
+  }, "Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faLink,
+    style: iconStyle
+  }))), showModal && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Modal, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     name: "contact",
     method: "POST",
     "data-netlify": "true",
