@@ -13,7 +13,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-manifest',
       plugin: require('/home/chris/Dev/ismarcworking2point0/node_modules/gatsby-plugin-manifest/gatsby-ssr.js'),
-      options: {"plugins":[],"name":"IsMarcWorkikng","short_name":"IMW","description":"I am always working.","start_url":"/","background_color":"#404343","theme_color":"#404343","display":"standalone","icon":"src/images/marcprofile.png","crossOrigin":"use-credentials","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","include_favicon":true,"cacheDigest":"7dd381bec3697ecb41060e248ea2a156"},
+      options: {"plugins":[],"name":"IsMarcWorkikng","short_name":"IMW","description":"I am always working.","start_url":"/","background_color":"#404343","theme_color":"#404343","display":"standalone","icon":"src/images/mask.png","crossOrigin":"use-credentials","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","include_favicon":true,"cacheDigest":"f86abc41d9c761a23c140021be226317"},
     },{
       name: 'gatsby-plugin-offline',
       plugin: require('/home/chris/Dev/ismarcworking2point0/node_modules/gatsby-plugin-offline/gatsby-ssr.js'),

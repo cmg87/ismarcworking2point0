@@ -1,5 +1,11 @@
 body{
     margin:auto;
+    @media (min-width: 1024px) {
+        display: grid;
+        place-items: center;
+        height: auto; /* Adjust the height as needed */
+        background: linear-gradient(to bottom left, #626263, #26292d);
+      }
 }
 
 link{

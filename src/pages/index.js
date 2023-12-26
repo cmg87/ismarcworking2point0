@@ -44,18 +44,6 @@ const CardContainer = styled.div`
   }
 `;
 
-const Container = styled.div`
-  @media (min-width: 1024px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: auto;
-    background: linear-gradient(to bottom left, #626263, #26292d);
-  }
-`;
-
 const Title = styled.h1`
   font-size: 2rem;
   margin-bottom: 10px;
@@ -105,7 +93,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin: 0.3rem;
-  width: 170px;
+  width: 175px;
 `;
 
 const Line = styled.div`
@@ -134,6 +122,8 @@ const QRCodePopup = styled.div`
 
 const iconStyle = {
   marginLeft: "10px",
+  height: "16px",
+  width: "16px",
 };
 
 const Row = styled.div`
@@ -151,7 +141,7 @@ const Index = () => {
   };
 
   return (
-    <Container>
+    <>
       <Helmet>
         <title>Marc Habbouche</title>
         <meta name="description" content="Marc Habbouche contact info" />
@@ -160,7 +150,6 @@ const Index = () => {
       </Helmet>
       <CardContainer>
         <Title>Marc Habbouche</Title>
-        {/* <ProfileImage src={profile} alt="Profile" /> */}
         <StaticImage
           src="../images/marcprofile.png"
           alt="profile picture"
@@ -184,14 +173,15 @@ const Index = () => {
         <Line />
         <Row>
           <Button>
-            <a href="tel:2164049099">216-404-9099</a>
-            <FontAwesomeIcon icon={faPhone} style={iconStyle} />
+            <a href="tel:2164049099">
+              216-404-9099 <FontAwesomeIcon icon={faPhone} style={iconStyle} />
+            </a>
           </Button>
           <Button>
             <a href={file} target="blank" download>
               Save Contact
+              <FontAwesomeIcon icon={faDownload} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faDownload} style={iconStyle} />
           </Button>
         </Row>
         <Row>
@@ -201,46 +191,46 @@ const Index = () => {
               target="blank"
             >
               Events
+              <FontAwesomeIcon icon={faLink} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faLink} style={iconStyle} />
           </Button>
           <Button>
             <a href="https://www.starboyz.us" target="blank">
               StarBoyz
+              <FontAwesomeIcon icon={faLink} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faLink} style={iconStyle} />
           </Button>
         </Row>
         <Row>
           <Button>
             <a href="mailto:Mhabbouche@curatedevents.com" target="blank">
               Work Email
+              <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
           </Button>
           <Button>
             <a href="https://www.instagram.com/Habb0uche/" target="blank">
               Instagram
+              <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
           </Button>
         </Row>
         <Row>
           <Button>
             <a href="https://www.facebook.com/habboucher" target="blank">
               Facebook
+              <FontAwesomeIcon icon={faFacebook} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faFacebook} style={iconStyle} />
           </Button>
           <Button>
             <a href="https://www.linkedin.com/in/mhabbouche" target="blank">
               Linkedin
+              <FontAwesomeIcon icon={faLinkedin} style={iconStyle} />
             </a>
-            <FontAwesomeIcon icon={faLinkedin} style={iconStyle} />
           </Button>
         </Row>
       </CardContainer>
-    </Container>
+    </>
   );
 };
 

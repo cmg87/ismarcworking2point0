@@ -1441,17 +1441,6 @@ const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].
     padding: 2rem;
   }
 `;
-const Container = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
-  @media (min-width: 1024px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: auto;
-    background: linear-gradient(to bottom left, #626263, #26292d);
-  }
-`;
 const Title = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].h1`
   font-size: 2rem;
   margin-bottom: 10px;
@@ -1497,7 +1486,7 @@ const Button = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].button`
   border-radius: 5px;
   cursor: pointer;
   margin: 0.3rem;
-  width: 170px;
+  width: 175px;
 `;
 const Line = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
   border-top: 2px solid #c8c8c7;
@@ -1521,7 +1510,9 @@ const QRCodePopup = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].di
   border-radius: 5px;
 `;
 const iconStyle = {
-  marginLeft: "10px"
+  marginLeft: "10px",
+  height: "16px",
+  width: "16px"
 };
 const Row = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
   display: flex;
@@ -1537,7 +1528,7 @@ const Index = () => {
   const toggleQRCode = () => {
     setShowQRCode(!showQRCode);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_helmet__WEBPACK_IMPORTED_MODULE_1__.Helmet, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("title", null, "Marc Habbouche"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("meta", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_helmet__WEBPACK_IMPORTED_MODULE_1__.Helmet, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("title", null, "Marc Habbouche"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("meta", {
     name: "description",
     content: "Marc Habbouche contact info"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("meta", {
@@ -1565,53 +1556,53 @@ const Index = () => {
     value: window.location.href
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Line, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "tel:2164049099"
-  }, "216-404-9099"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "216-404-9099 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faPhone,
     style: iconStyle
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: file,
     target: "blank",
     download: true
-  }, "Save Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Save Contact", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faDownload,
     style: iconStyle
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://curatedevents.com/charlotte/?gclid=CjwKCAiAyp-sBhBSEiwAWWzTnh9a7dU3uaiiKB1jsvw7gHtVb-eOLBdzTktfTToAur8WOuy5W2fWKBoCzKcQAvD_BwE",
     target: "blank"
-  }, "Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Events", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faLink,
     style: iconStyle
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://www.starboyz.us",
     target: "blank"
-  }, "StarBoyz"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "StarBoyz", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faLink,
     style: iconStyle
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "mailto:Mhabbouche@curatedevents.com",
     target: "blank"
-  }, "Work Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Work Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEnvelope,
     style: iconStyle
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://www.instagram.com/Habb0uche/",
     target: "blank"
-  }, "Instagram"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Instagram", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faInstagram,
     style: iconStyle
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://www.facebook.com/habboucher",
     target: "blank"
-  }, "Facebook"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Facebook", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faFacebook,
     style: iconStyle
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Button, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://www.linkedin.com/in/mhabbouche",
     target: "blank"
-  }, "Linkedin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+  }, "Linkedin", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faLinkedin,
     style: iconStyle
-  })))));
+  }))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
 
