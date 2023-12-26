@@ -56,20 +56,6 @@ const Container = styled.div`
   }
 `;
 
-const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #f1f1f0;
-`;
-
 const Title = styled.h1`
   font-size: 2rem;
   margin-bottom: 10px;
@@ -233,7 +219,7 @@ const Index = () => {
             <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
           </Button>
           <Button>
-            <a href="https://www.facebook.com/habboucher" target="blank">
+            <a href="https://www.instagram.com/Habb0uche/" target="blank">
               Instagram
             </a>
             <FontAwesomeIcon icon={faInstagram} style={iconStyle} />
