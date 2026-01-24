@@ -19,7 +19,7 @@ export const handler = async (event) => {
   }
 
   const apiKey = process.env.TEXTBELT_API_KEY;
-  const recipientNumber = formatPhone('+1 (216) 404-9099');
+  const recipientNumber = '2164049099';
   if (!apiKey) {
     return {
       statusCode: 500,
