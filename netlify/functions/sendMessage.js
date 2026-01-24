@@ -19,19 +19,12 @@ export const handler = async (event) => {
   }
 
   const apiKey = process.env.TEXTBELT_API_KEY;
-  const recipientNumber = process.env.TEXTBELT_TO_NUMBER;
+  const recipientNumber = formatPhone('+1 (216) 404-9099');
   if (!apiKey) {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ success: false, error: 'Missing TEXTBELT_API_KEY' }),
-    };
-  }
-  if (!recipientNumber) {
-    return {
-      statusCode: 500,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ success: false, error: 'Missing TEXTBELT_TO_NUMBER' }),
     };
   }
 
