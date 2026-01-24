@@ -11,13 +11,22 @@ const StatusCard: React.FC<StatusCardProps> = ({ isWorking }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isCurrent = true;
+
     const fetchStatus = async () => {
       setLoading(true);
       const msg = await getWittyStatus(isWorking);
+      if (!isCurrent) {
+        return;
+      }
       setAiMessage(msg);
       setLoading(false);
     };
     fetchStatus();
+
+    return () => {
+      isCurrent = false;
+    };
   }, [isWorking]);
 
   return (

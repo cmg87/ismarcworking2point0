@@ -23,8 +23,8 @@ const App: React.FC = () => {
       const hour = Number.parseInt(hourPart, 10);
       const isWeekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(dayPart);
 
-      // Mon-Fri, 8 AM to 8 PM Eastern Time
-      const workHours = isWeekday && hour >= 8 && hour <= 20;
+      // Mon-Fri, 8 AM to 7:59 PM Eastern Time
+      const workHours = isWeekday && hour >= 8 && hour < 20;
       setIsWorking(workHours);
     };
 
