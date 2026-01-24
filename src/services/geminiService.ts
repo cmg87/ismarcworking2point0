@@ -42,6 +42,6 @@ export const getWittyStatus = async (isWorking: boolean): Promise<string> => {
     return response.text || (isWorking ? "Marc is currently in the zone." : "Marc is currently recharging.");
   } catch (error) {
     console.error("Gemini Error:", error);
-    return isWorking ? "The code is flowing." : "Taking a brief intermission.";
+    return isWorking ? "Marc is currently in the zone." : "Marc is currently recharging.";
   }
 };
