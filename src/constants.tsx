@@ -64,5 +64,5 @@ export const MARC_DETAILS = {
   phone: '216-404-9099',
   email: 'Mhabbouche@curatedevents.com',
   website: 'https://www.ismarcworking.com',
-  vcardUrl: 'https://video.chrisgoerler.com/contact.vcf'
+  vcardUrl: 'https://sbc.nyc3.cdn.digitaloceanspaces.com/marc.vcf'
 };

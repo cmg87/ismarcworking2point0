@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import QRCode from 'qrcode';
 import BackgroundEffects from './components/BackgroundEffects';
 import StatusCard from './components/StatusCard';
 import SocialList from './components/SocialList';
@@ -7,6 +8,8 @@ import { MARC_DETAILS } from './constants';
 
 const App: React.FC = () => {
   const [isWorking, setIsWorking] = useState<boolean>(true);
+  const [showQrCode, setShowQrCode] = useState(false);
+  const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const checkStatus = () => {
@@ -32,6 +35,30 @@ const App: React.FC = () => {
     const interval = setInterval(checkStatus, 60000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (!showQrCode || qrCodeDataUrl) {
+      return;
+    }
+
+    const generateQrCode = async () => {
+      try {
+        const dataUrl = await QRCode.toDataURL('https://ismarcworking.com/', {
+          margin: 1,
+          width: 220,
+          color: {
+            dark: '#0f172a',
+            light: '#ffffff',
+          },
+        });
+        setQrCodeDataUrl(dataUrl);
+      } catch (error) {
+        console.error('QR code generation failed:', error);
+      }
+    };
+
+    generateQrCode();
+  }, [showQrCode, qrCodeDataUrl]);
 
   const downloadVCard = () => {
     const link = document.createElement('a');
@@ -60,10 +87,10 @@ const App: React.FC = () => {
       <BackgroundEffects />
 
       {/* Profile Header */}
-      <header className="flex flex-col items-center gap-6 mb-8 animate-fadeIn">
-        <div className="relative group cursor-pointer" onClick={handleShare}>
+      <header className="flex flex-col items-center gap-6 mb-8 animate-fadeIn glass-panel rounded-3xl px-6 py-10">
+        <div className="relative group cursor-pointer" onClick={() => setShowQrCode(true)}>
           <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 rounded-full blur-2xl opacity-10 group-hover:opacity-30 transition duration-1000"></div>
-          <div className="relative p-1 rounded-full bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 shadow-2xl">
+          <div className="relative p-1 rounded-full bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700">
             <img 
               src={MARC_DETAILS.avatar} 
               alt={MARC_DETAILS.name}
@@ -97,14 +124,14 @@ const App: React.FC = () => {
           <div className="w-full max-w-md mx-auto px-6 grid grid-cols-2 gap-4">
             <button 
               onClick={downloadVCard}
-              className="py-5 glass rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.08] transition-all font-black text-[10px] tracking-[0.25em] uppercase flex items-center justify-center gap-2 group shadow-xl shadow-black/40 overflow-hidden relative"
+              className="py-5 glass rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-500 font-black text-[10px] tracking-[0.25em] uppercase flex items-center justify-center gap-2 group shadow-xl shadow-black/40 overflow-hidden relative hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-blue-500/10"
             >
               <i className="fa-solid fa-address-card opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
               Save Contact
             </button>
             <button 
               onClick={handleShare}
-              className="py-5 glass rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.08] transition-all font-black text-[10px] tracking-[0.25em] uppercase flex items-center justify-center gap-2 group shadow-xl shadow-black/40"
+              className="py-5 glass rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-500 font-black text-[10px] tracking-[0.25em] uppercase flex items-center justify-center gap-2 group shadow-xl shadow-black/40 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-purple-500/10"
             >
               <i className="fa-solid fa-share-nodes opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
               Share Card
@@ -135,6 +162,39 @@ const App: React.FC = () => {
           <i className={`fa-solid ${isWorking ? 'fa-briefcase' : 'fa-moon'} text-lg group-hover:rotate-12 transition-transform`}></i>
         </button>
       </div>
+
+      {showQrCode && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6"
+          onClick={() => setShowQrCode(false)}
+        >
+          <div
+            className="w-full max-w-xs glass rounded-2xl border border-white/10 p-6 text-center shadow-2xl hover:shadow-blue-500/20 transition-all duration-500"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black mb-4">
+              Scan To Visit
+            </div>
+            {qrCodeDataUrl ? (
+              <img
+                src={qrCodeDataUrl}
+                alt="QR code for https://ismarcworking.com"
+                className="mx-auto rounded-xl bg-white p-2"
+              />
+            ) : (
+              <div className="mx-auto flex h-[236px] w-[236px] items-center justify-center rounded-xl bg-white/10 text-xs text-white/60">
+                Generating QR...
+              </div>
+            )}
+            <button
+              className="mt-5 w-full py-3 rounded-xl border border-white/10 bg-white/[0.05] text-[10px] font-black tracking-[0.3em] uppercase text-white/70 hover:text-white hover:bg-white/[0.08] transition"
+              onClick={() => setShowQrCode(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes fadeIn {

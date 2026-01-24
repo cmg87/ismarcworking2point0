@@ -13,7 +13,7 @@ const SocialList: React.FC = () => {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center justify-between p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500 group hover:-translate-y-1 active:scale-[0.98] shadow-2xl shadow-black/40`}
+            className={`flex items-center justify-between p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500 group hover:-translate-y-1 active:scale-[0.98] shadow-2xl shadow-black/40 hover:shadow-blue-500/10 hover:shadow-2xl hover:scale-[1.01]`}
           >
             <div className="flex items-center gap-5">
               <div className={`text-2xl text-white/50 transition-all duration-300 group-hover:scale-110 ${link.color}`}>
@@ -36,7 +36,7 @@ const SocialList: React.FC = () => {
           <a
             key={action.id}
             href={action.url}
-            className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500 group active:scale-95 gap-3 shadow-xl shadow-black/40"
+            className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500 group active:scale-95 gap-3 shadow-xl shadow-black/40 hover:shadow-purple-500/10 hover:-translate-y-0.5"
           >
             <div className={`text-2xl text-white/40 transition-all duration-300 group-hover:scale-110 group-hover:text-white ${action.color}`}>
               <i className={action.icon}></i>

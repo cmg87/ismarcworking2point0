@@ -38,7 +38,7 @@ const StatusCard: React.FC<StatusCardProps> = ({ isWorking }) => {
         </h1>
       </div>
       
-      <div className="mt-8 glass rounded-2xl p-6 max-w-md w-full border border-white/5 shadow-2xl">
+      <div className="mt-8 glass rounded-2xl p-6 max-w-md w-full border border-white/5 shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-0.5 transition-all duration-500">
         <div className="flex items-center gap-3 mb-2">
           <div className={`w-2 h-2 rounded-full ${isWorking ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`}></div>
           <span className="text-[10px] uppercase tracking-widest font-bold text-white/40">Status Update</span>
