@@ -2,7 +2,11 @@
 import React from 'react';
 import { SOCIAL_LINKS, CONTACT_ACTIONS } from '../constants';
 
-const SocialList: React.FC = () => {
+interface SocialListProps {
+  onMessageClick: () => void;
+}
+
+const SocialList: React.FC<SocialListProps> = ({ onMessageClick }) => {
   return (
     <div className="w-full max-w-md mx-auto px-6 space-y-8 mt-6">
       {/* Primary Social Links - Large Cards */}
@@ -45,6 +49,17 @@ const SocialList: React.FC = () => {
           </a>
         ))}
       </div>
+
+      <button
+        type="button"
+        onClick={onMessageClick}
+        className="w-full glass rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500 group active:scale-[0.98] shadow-2xl shadow-black/40 hover:shadow-emerald-500/10 hover:-translate-y-0.5"
+      >
+        <div className="flex items-center justify-center gap-3 px-6 py-5">
+          <i className="fa-solid fa-message text-white/50 group-hover:text-emerald-300 transition-colors"></i>
+          <span className="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 group-hover:text-white">Message Now</span>
+        </div>
+      </button>
     </div>
   );
 };
