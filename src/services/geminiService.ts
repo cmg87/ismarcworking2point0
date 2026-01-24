@@ -7,11 +7,12 @@ export const getWittyStatus = async (isWorking: boolean): Promise<string> => {
       body: JSON.stringify({ isWorking }),
     });
 
+    const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      throw new Error(`Gemini function error: ${response.status}`);
+      const details = data?.details ? ` - ${data.details}` : '';
+      throw new Error(`Gemini function error: ${response.status}${details}`);
     }
 
-    const data = await response.json();
     if (!data?.text) {
       throw new Error('Gemini function returned empty response');
     }

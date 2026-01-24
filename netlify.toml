@@ -5,7 +5,13 @@
 [functions]
   directory = "netlify/functions"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 3001
+
+[context.production]
+  [[context.production.redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
