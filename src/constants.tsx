@@ -61,7 +61,7 @@ export const MARC_DETAILS = {
   role: 'Charlotte, NC',
   bio: 'I was born at a very young age',
   avatar: '/marc.jpg',
-  phone: '216-404-9099',
+  phone: '+1 (216) 404-9099',
   email: 'Mhabbouche@curatedevents.com',
   website: 'https://www.ismarcworking.com',
   vcardUrl: 'https://sbc.nyc3.cdn.digitaloceanspaces.com/marc.vcf'
