@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { getWittyStatus } from '../services/geminiService';
+import { getWittyStatus } from '@/services/geminiService';
 
 interface StatusCardProps {
   isWorking: boolean;

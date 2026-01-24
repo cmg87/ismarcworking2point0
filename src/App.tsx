@@ -11,11 +11,20 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkStatus = () => {
       const now = new Date();
-      const day = now.getDay();
-      const hour = now.getHours();
-      
-      // Mon-Fri, 9 AM to 6 PM Central Time (approx)
-      const workHours = day >= 1 && day <= 5 && hour >= 9 && hour <= 18;
+      const estParts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        weekday: 'short',
+        hour: 'numeric',
+        hour12: false,
+      }).formatToParts(now);
+
+      const dayPart = estParts.find((part) => part.type === 'weekday')?.value ?? '';
+      const hourPart = estParts.find((part) => part.type === 'hour')?.value ?? '';
+      const hour = Number.parseInt(hourPart, 10);
+      const isWeekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(dayPart);
+
+      // Mon-Fri, 8 AM to 8 PM Eastern Time
+      const workHours = isWeekday && hour >= 8 && hour <= 20;
       setIsWorking(workHours);
     };
 

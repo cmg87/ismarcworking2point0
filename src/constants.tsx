@@ -60,7 +60,7 @@ export const MARC_DETAILS = {
   name: 'Marc Habbouche',
   role: 'Charlotte, NC',
   bio: 'I was born at a very young age',
-  avatar: '../marc.jpg',
+  avatar: '/marc.jpg',
   phone: '216-404-9099',
   email: 'Mhabbouche@curatedevents.com',
   website: 'https://www.ismarcworking.com',
